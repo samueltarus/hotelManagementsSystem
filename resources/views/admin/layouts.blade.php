@@ -95,33 +95,39 @@
                     <li class="selected">
                         <a href="{{url('admin')}}"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                     </li>
-
-
                     <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Guest<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Clients<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{url('all-guest')}}">Guest List</a>
+                                <a href="{{url('all-clients')}}">Client List</a>
                             </li>
                             <li>
-                                <a href="{{url('checkin-guest')}}">Add Guest</a>
+                                <a href="{{url('add-client')}}">Add Client</a>
                             </li>
-                            <li>
-                                <a href="{{url('checkin-guest')}}">Checked In</a>
-                            </li>
-                            <li>
-                                <a href="{{url('checkout-guest')}}">Checked Out</a>
-                            </li>
+
                         </ul>
                         <!-- second-level-items -->
                     </li>
+
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Booking<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{url('all-booking')}}">Booking List</a></li>
-                            <li><a href="{{url('all-booking')}}">All Rooms </a></li>
-                            <li><a href="{{url('all-booking')}}">Booked Rooms</a></li>
-                            <li><a href="{{url('all-booking')}}">Booked Halls</a></li>
+                            <li><a href="{{url('all-booked-rooms')}}">Booked Rooms</a></li>
+                            <li><a href="{{url('all-booked-halls')}}">Booked Halls</a></li>
+
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Rooms<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li><a href="{{url('all-rooms')}}">All Rooms </a></li>
+                            <li><a href="{{url('add-room')}}">Add Room</a></li>
+                            <li><a href="{{url('add-room-type')}}">Add Room Type</a></li>
+                            <li><a href="{{url('add-room-service')}}">Add Room Service</a></li>
+
 
                         </ul>
                         <!-- second-level-items -->
@@ -137,6 +143,26 @@
                         </ul>
                         <!-- second-level-items -->
                     </li>
+
+
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Customers<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{{url('all-guest')}}">Customers List</a>
+                            </li>
+                            <li>
+                                <a href="{{url('checkin-guest')}}">Add Customer</a>
+                            </li>
+                            <li>
+                                <a href="{{url('checkin-guest')}}">Checked In</a>
+                            </li>
+                            <li>
+                                <a href="{{url('checkout-guest')}}">Checked Out</a>
+                            </li>
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Payments<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -149,7 +175,7 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Employees<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{url('all-employees')}}">Employees List</a></li>
-                            <li><a href="{{url('employee-leave')}}">Add Employee</a></li>
+                            <li><a href="{{url('add_employee')}}">Add Employee</a></li>
                             <li><a href="{{url('employee-leave')}}">Leaves</a></li>
                         </ul>
                         <!-- second-level-items -->
