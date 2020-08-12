@@ -4,7 +4,7 @@
 <div class="row">
     <!--  page header -->
    <div class="col-lg-12">
-       <h1 class="page-header"> Booking List</h1>
+       <h1 class="page-header"> Customers  List</h1>
    </div>
     <!-- end  page header -->
 </div>
@@ -21,30 +21,37 @@
                        <thead>
                            <tr>
                                <th>Client Name</th>
+                               <th>Customer Firstname</th>
+                               <th>Customer lastname</th>
+                               <th>Customer Email</th>
+                               <th>Customer Vehicle License</th>
                                <th>Customer Phone Number</th>
-                               <th>Customer ID </th>
-                               <th>Checked In </th>
-                               <th>Checked Out</th>
+                               <th>City </th>
+                               <th>County /Province</th>
+                               <th>Address</th>
                                <th>Status </th>
                                <th>Actions</th>
                            </tr>
                        </thead>
                        <tbody>
-                           @foreach ($booked as $booked)
-
+                           @foreach ($customers as $customers)
 
                            <tr class="odd gradeX">
-                               <td>{{$booked->booking_id}}</td>
-                               <td>{{$booked->customer_phone_number}}</td>
-                               <td>{{$booked->customer_id}}</td>
-                               <td>{{$booked->customer_check_in}}</td>
-                               <td>{{$booked->customer_check_out}}</td>
+                               <td>{{$customers->customer_id}}</td>
+                               <td>{{$customers->first_name}}</td>
+                               <td>{{$customers->last_name}}</td>
+                               <td>{{$customers->email}}</td>
+                               <td>{{$customers->driving_license}}</td>
+                               <td>{{$customers->phone_number}}</td>
+                               <td>{{$customers->city}}</td>
+                               <td>{{$customers->county}}</td>
+                               <td>{{$customers->address}}</td>
                                <td class="text-right py-0 align-middle">
                                 <div class="btn-group btn-group-sm">
                                 {{-- @if ($house->house_status==0) --}}
-                                <a class="btn btn-danger" href="#">Pending
+                                {{-- <a class="btn btn-danger" href="#">Pending
                                         <i class="fas fa-thumbs-down"></i>
-                                    </a>
+                                    </a> --}}
                                     {{-- @else --}}
                                     <a class="btn btn-success" href="#">Approved
                                         <i class="fas fa-thumbs-up"></i>

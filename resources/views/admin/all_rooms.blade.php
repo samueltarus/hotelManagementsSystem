@@ -24,7 +24,7 @@
                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                        <thead>
                            <tr>
-                               <th>Client ID</th>
+                               <th>Client Name</th>
                                <th>Room Type</th>
                                <th>Room Code</th>
                                <th>Room Price</th>
@@ -36,8 +36,8 @@
                            @foreach ($rooms as $rooms)
 
                            <tr class="odd gradeX">
-                           <td>{{$rooms->client_id}}</td>
-                           <th>{{$rooms->room_type_id}}</th>
+                           <td>{{$rooms->client_name}}</td>
+                           <th>{{$rooms->room_type_name}}</th>
                                <td>{{$rooms->room_code}}</td>
                                <td>{{$rooms->room_price}}</td>
                                <td class="center">{{$rooms->status}}</td>

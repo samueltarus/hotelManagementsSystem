@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBookedTable extends Migration
+class CreateBookTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,18 @@ class CreateBookedTable extends Migration
      */
     public function up()
     {
-        Schema::create('booked', function (Blueprint $table) {
+        Schema::create('book', function (Blueprint $table) {
             $table->bigIncrements('booking_id');
+            $table->string('customer_first_name');
+            $table->string('customer_lastname');
+            $table->string('customer_username');
             $table->integer('customer_phone_number');
-            $table->string('customer_id');
             $table->date('customer_check_in');
             $table->date('customer_check_out');
             $table->string('guest');
-            $table->integer('room_id');
+            $table->string('children');
+            $table->softDeletes();
+
 
 
             // $table->unsignedBigInteger('client_id');

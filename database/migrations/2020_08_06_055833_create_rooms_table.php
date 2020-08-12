@@ -15,15 +15,23 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->bigIncrements('room_id');
+            $table->unsignedBigInteger('client_id');
+            $table->foreign('client_id')->references('client_id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->unsignedBigInteger('room_type_id');
+            $table->foreign('room_type_id')->references('room_type_id')->on('room_types')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('service_id')->references('service_id')->on('services')->onDelete('cascade')->onUpdate('cascade');
             $table->string('room_code');
-            $table->bigIncrements('client_id');
             $table->double('room_price');
             $table->string('size');
             $table->string('capacity');
             $table->string('bed');
-            $table->string('service');
+            $table->string('payment_number');
+            $table->string('payment_account_number');
+            $table->string('payment_contact_person');
             $table->integer('status');
-
+            $table->softDeletes();
            $table->timestamps();
         });
     }

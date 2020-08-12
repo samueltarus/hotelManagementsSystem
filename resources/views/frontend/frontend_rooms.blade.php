@@ -45,7 +45,7 @@
             <i class="icon_search"></i>
         </div>
         <div class="header-configure-area">
-            <div class="language-option">
+            {{-- <div class="language-option">
                 <img src="img/flag.jpg" alt="">
                 <span>EN <i class="fa fa-angle-down"></i></span>
                 <div class="flag-dropdown">
@@ -54,13 +54,13 @@
                         <li><a href="#">Fr</a></li>
                     </ul>
                 </div>
-            </div>
-            <a href="#" class="bk-btn">Booking Now</a>
+            </div> --}}
+            <a href="{{url('frontend-index')}}" class="bk-btn">Book Now</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-            <li class="active"><a href="{{url('/')}}">Home</a></li>
-            <li><a href="{{url('frontend-rooms')}}">Rooms</a></li>
+                <li><a href="{{url('index')}}">Home</a></li>
+                <li class="active"><a href="{{url('/')}}">Rooms</a></li>
                 <li><a href="{{url('frontend-about')}}}">About Us</a></li>
                 <li><a href="./pages.html">Pages</a>
                     <ul class="dropdown">
@@ -107,7 +107,7 @@
                                 <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
-                            <a href="#" class="bk-btn">Booking Now</a>
+                            <a href="{{url('frontend-index')}}" class="bk-btn">Book Now</a>
                             <div class="language-option">
                                 <img src="img/flag.jpg" alt="">
                                 <span>EN <i class="fa fa-angle-down"></i></span>
@@ -137,8 +137,8 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li><a href="{{url('/')}}">Home</a></li>
-                                    <li class="active"><a href="{{url('frontend-rooms')}}">Rooms</a></li>
+                                    <li><a href="{{url('index')}}">Home</a></li>
+                                    <li class="active"><a href="{{url('/')}}">Rooms</a></li>
                                 <li><a href="{{  url('frontend-about')}}">About Us</a></li>
                                     <li><a href="./pages.html">Pages</a>
                                         <ul class="dropdown">
@@ -184,13 +184,14 @@
     <!-- Rooms Section Begin -->
     <section class="rooms-section spad">
         <div class="container">
-            <div class="row">
+            <div class="row"  class=" text-center">
                 @foreach ($rooms as $rooms)
 
                <div class="col-lg-4 col-md-6">
                     <div class="room-item">
                         <img src="{{asset('frontend/img/room/room-1.jpg')}}" alt="">
                         <div class="ri-text">
+                            <h4 class="text-center btn-info"> {{$rooms->client_name}}</h4>
                             <h4>{{$rooms->room_type_name}}</h4>
                             <h3>Ksh .{{$rooms->room_price}}<span></span></h3>
                             <table>
@@ -214,6 +215,10 @@
                                 </tbody>
                             </table>
                         <a href="{{URL::to('/frontend-room-details/'.$rooms->room_id)}}" class="primary-btn">More Details</a>
+                        <div class="header-configure-area">
+
+                            <a href="{{url('frontend-index')}}" class="bk-btn">BOOK NOW</a>
+                        </div>
                         </div>
                     </div>
                 </div>

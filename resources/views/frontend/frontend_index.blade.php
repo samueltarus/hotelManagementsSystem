@@ -55,12 +55,12 @@
                     </ul>
                 </div>
             </div>
-            <a href="#" class="bk-btn">Booking Now</a>
+            <a href="{{url('index')}}" class="bk-btn">Book Now</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-            <li class="active"><a href="{{url('/')}}">Home</a></li>
-            <li><a href="{{url('frontend-rooms')}}">Rooms</a></li>
+                <li><a href="{{url('index')}}">Home</a></li>
+                <li class="active"><a href="{{url('/')}}">Rooms</a></li>
             <li><a href="{{url('frontend-about')}}">About Us</a></li>
                 <li><a href="./pages.html">Room Types</a>
                     <ul class="dropdown">
@@ -107,7 +107,7 @@
                                 <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
-                            <a href="#" class="bk-btn">Booking Now</a>
+                            <a href="{{url('index')}}" class="bk-btn">Book Now</a>
                             <div class="language-option">
                                 <img src="{{asset('frontendimg/flag.jpg')}}" alt="">
                                 <span>EN <i class="fa fa-angle-down"></i></span>
@@ -137,8 +137,8 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                <li class="active"><a href="{{url('/')}}">Home</a></li>
-                                <li><a href="{{url('frontend-rooms')}}">Rooms</a></li>
+                                    <li><a href="{{url('index')}}">Home</a></li>
+                                    <li class="active"><a href="{{url('/')}}">Rooms</a></li>
                                 <li><a href="{{url('frontend-about')}}">About Us</a></li>
                                     <li><a href="./pages.html">Room Types</a>
                                         <ul class="dropdown">
@@ -260,7 +260,7 @@
                                      @endforeach
                                 </select>
                             </div>
-                            <button type="submit">Booking</button>
+                            <button type="submit">Book</button>
                         </form>
                     </div>
                 </div>

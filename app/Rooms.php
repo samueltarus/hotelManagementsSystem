@@ -11,6 +11,9 @@ class Rooms extends Model
 
     protected $fillable = [
 
-         'client_id','room_type_id','room_service_name','room_code','room_price','size','capacity','bed','status'
+         'client_id','room_type_id','room_service_name','room_code','room_price','size','capacity','bed','payment_number','payment_account_number','payment_contact_person','status',
     ];
     }
+
+
+

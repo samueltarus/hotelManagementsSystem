@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 class ClientsController extends Controller
 {
     public function all_clients(){
+        
         $clients=Client::all();
         return view('admin.all_clients',compact('clients'));
     }

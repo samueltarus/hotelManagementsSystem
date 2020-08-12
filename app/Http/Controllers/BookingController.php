@@ -12,24 +12,56 @@ use App\Http\Controllers\str_random;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
+
 class BookingController extends Controller
 {
 
+
+    public function all_booking(){
+
+        $booked =DB::select('select * from booked ');
+
+        return view('admin.all_booking',compact('booked'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ///rooms for booking
+
+
+
     public function all_rooms(){
-         $rooms=Rooms::all();
+        $rooms = DB::table('rooms')
+        ->join('room_types', 'rooms.room_type_id',  '=', 'room_types.room_type_id')
+        ->join('clients', 'rooms.client_id',  '=', 'clients.client_id')
+        ->select('rooms.*', 'room_types.room_type_name','clients.client_name')
+        ->get();
+
         return view('admin.all_rooms',compact('rooms'));
     }
     public function add_room(){
-        // $rooms=Client::all();
+
          $rooms =DB::select('select client_name ,client_id from Clients ');
          $room_types =DB::select('select room_type_name ,room_type_id from room_types ');
          $room_services =DB::select('select room_services_name  ,service_id from services');
         return view('admin.add_room',compact('rooms','room_types','room_services'));
 
     }
+
     public function save_room(Request $request){
 
         $data =array();
+
 
         $data['client_id']=$request->client_id;
         $data['room_type_id']=$request->room_type_id;
@@ -40,6 +72,10 @@ class BookingController extends Controller
         $data['capacity']=$request->capacity;
         $data['bed'] = $request->bed;
         $data['size']=$request->size;
+        $data['payment_number']=$request->payment_number;
+        $data['payment_account_number']=$request->payment_account_number;
+        $data['payment_contact_person'] = $request->payment_contact_person;
+
         $data['status'] = $request->status;
 
         DB::table('rooms')->insert($data);

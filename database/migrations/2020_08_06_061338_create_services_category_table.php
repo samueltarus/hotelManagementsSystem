@@ -20,6 +20,7 @@ class CreateServicesCategoryTable extends Migration
             $table->string('service_category_name');
             $table->boolean('service_category_status');
             $table->string('service_category_features');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -15,6 +15,7 @@ class CreateUserAssignedRolesTable extends Migration
     {
         Schema::create('user_assigned_roles', function (Blueprint $table) {
             $table->id();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ class CreateEmployeeProfileTable extends Migration
             $table->foreign('client_id')->references('client_id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->string('employee_profile_name');
             $table->string('employee_profile_status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

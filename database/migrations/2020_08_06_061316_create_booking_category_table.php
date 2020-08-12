@@ -20,6 +20,7 @@ class CreateBookingCategoryTable extends Migration
             $table->string('booking_category_name');
             $table->string('booking_category_description');
             $table->string('booking_category_status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

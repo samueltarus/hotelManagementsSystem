@@ -27,6 +27,7 @@ class CreateReservationsTable extends Migration
             $table->boolean('reservation_status');
             $table->string('adults');
             $table->string('children');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{url('/')}}">
                     Talii Hotel
                     {{-- <img src="{{asset('backend/img/logo.png')}}" alt="" /> --}}
                 </a>
@@ -113,8 +113,8 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Booking<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{url('all-booking')}}">Booking List</a></li>
-                            <li><a href="{{url('all-booked-rooms')}}">Booked Rooms</a></li>
-                            <li><a href="{{url('all-booked-halls')}}">Booked Halls</a></li>
+                            {{-- <li><a href="{{url('all-booked-rooms')}}">Booked Rooms</a></li>
+                            <li><a href="{{url('all-booked-halls')}}">Booked Halls</a></li> --}}
 
                         </ul>
                         <!-- second-level-items -->
@@ -135,7 +135,7 @@
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reservation<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{url('all-reservation')}}">Reservation List</a></li>
+                            <li><a href="{{url('all-reservations')}}">Reservation List</a></li>
 								<li><a href="payments.html">Payments</a></li>
 								<li><a href="expenses.html">Expenses</a></li>
 								<li><a href="taxes.html">Taxes</a></li>
@@ -149,16 +149,16 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Customers<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{url('all-guest')}}">Customers List</a>
+                                <a href="{{url('all-customers')}}">Customers List</a>
                             </li>
                             <li>
-                                <a href="{{url('checkin-guest')}}">Add Customer</a>
+                                <a href="{{url('add-customer')}}">Add Customer</a>
                             </li>
                             <li>
-                                <a href="{{url('checkin-guest')}}">Checked In</a>
+                                <a href="{{url('checkin-customers')}}">Checked In</a>
                             </li>
                             <li>
-                                <a href="{{url('checkout-guest')}}">Checked Out</a>
+                                <a href="{{url('checkout-customers')}}">Checked Out</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->

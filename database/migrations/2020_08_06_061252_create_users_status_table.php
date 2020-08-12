@@ -15,6 +15,7 @@ class CreateUsersStatusTable extends Migration
     {
         Schema::create('users_status', function (Blueprint $table) {
             $table->id();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

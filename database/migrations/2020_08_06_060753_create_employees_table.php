@@ -27,6 +27,7 @@ class CreateEmployeesTable extends Migration
             $table->string('kra_pin');
             $table->string('nssf_pin');
             $table->string('certificate_of_good_conduct');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

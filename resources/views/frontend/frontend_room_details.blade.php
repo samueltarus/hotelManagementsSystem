@@ -56,12 +56,12 @@
                     </ul>
                 </div>
             </div>
-            <a href="#" class="bk-btn">Booking Now</a>
+            <a href="{{url('frontend-index')}}" class="bk-btn">Book Now</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-            <li class="active"><a href="{{ url('/')}}">Home</a></li>
-            <li><a href="{{url('frontend-rooms')}}">Rooms</a></li>
+                <li><a href="{{url('index')}}">Home</a></li>
+                <li class="active"><a href="{{url('/')}}">Rooms</a></li>
             <li><a href="{{ url('frontend-about')}}}">About Us</a></li>
                 <li><a href="./pages.html">Pages</a>
                     <ul class="dropdown">
@@ -108,7 +108,7 @@
                                 <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
-                            <a href="#" class="bk-btn">Booking Now</a>
+                            <a href="{{url('frontend-index')}}" class="bk-btn">Book Now</a>
                             <div class="language-option">
                                 <img src="img/flag.jpg" alt="">
                                 <span>EN <i class="fa fa-angle-down"></i></span>
@@ -138,8 +138,8 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                <li><a href="{{url('/')}}">Home</a></li>
-                                <li class="active"><a href="{{url('frontend-rooms')}}">Rooms</a></li>
+                                <li><a href="{{url('index')}}">Home</a></li>
+                                <li class="active"><a href="{{url('/')}}">Rooms</a></li>
                                     <li><a href="{{url('frontend-about')}}">About Us</a></li>
                                     <li><a href="./pages.html">Pages</a>
                                         <ul class="dropdown">
@@ -187,12 +187,12 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="room-details-item">
                         <img src="{{asset('frontend/img/room/room-details.jpg')}}" alt="">
                         <div class="rd-text">
                             <div class="rd-title">
-                            <h3>{{$rooms->room_type_name}}</h3>
+                            <h3>{{$rooms->room_type_id}}</h3>
                                 <div class="rdt-right">
                                     <div class="rating">
                                         <i class="icon_star"></i>
@@ -201,7 +201,7 @@
                                         <i class="icon_star"></i>
                                         <i class="icon_star-half_alt"></i>
                                     </div>
-                                    <a href="#">Booking Now</a>
+                                    <a href="{{url('frontend-index')}}" class="bk-btn">Book Now</a>
                                 </div>
                             </div>
                         <h2>Ksh .{{$rooms->room_price}}<span></span></h2>
@@ -223,6 +223,18 @@
                                         <td class="r-o">Services:</td>
                                         <td>{{$rooms->room_services_name}}</td>
                                     </tr>
+                                    <tr>
+                                        <td class="r-o">Payment Number:</td>
+                                        <td> <h2>{{$rooms->payment_number}} <span></span> </h2></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Payments Account Number:</td>
+                                        <td><h2>{{$rooms->payment_account_number}}</h2> <span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="r-o">Contact Number:</td>
+                                        <td>{{$rooms->payment_contact_person}}<span></span></td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <p class="f-para">Motorhome or Trailer that is the question for you. Here are some of the
@@ -232,10 +244,7 @@
                                 choice wisely when purchasing an RV. Possessing a motorhome or fifth wheel is an
                                 achievement of a lifetime. It can be similar to sojourning with your residence as you
                                 search the various sites of our great land, America.</p>
-                            <p>The two commonly known recreational vehicle classes are the motorized and towable.
-                                Towable rvs are the travel trailers and the fifth wheel. The rv travel trailer or fifth
-                                wheel has the attraction of getting towed by a pickup or a car, thus giving the
-                                adaptability of possessing transportation for you when you are parked at your campsite.
+                            <p>{{$rooms->service_description}}
                             </p>
                         </div>
                     </div>

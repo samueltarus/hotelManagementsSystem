@@ -72,14 +72,25 @@
                         <label for="bed">Bed:</label>
                         <input type="text" class="form-control" placeholder="Enter Beds"name="bed"id="bed" required>
                       </div>
+                      <div class="form-group">
+                        <label for="payment_number">Payment Number:</label>
+                        <input type="text" class="form-control" placeholder="Enter Payment Number"name="payment_number"id="payment_number" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="payment_account_number">Payment Account Number:</label>
+                        <input type="text" class="form-control" placeholder="Enter Account Number"name="payment_account_number"id="payment_account_number" >
+                      </div>
+                      <div class="form-group">
+                        <label for="payment_contact_person">Payment Contact Person:</label>
+                        <input type="text" class="form-control" placeholder="Enter Beds"name="payment_contact_person"id="payment_contact_person" required>
+                      </div>
 
                       <div class="radio">
                         <label>
                             <input type="checkbox" name="status" id="status" value="0" checked>Status
                         </label>
                     </div>
-
-
+                    
 
 
                            <button type="submit" class="btn btn-primary">Save Room</button>

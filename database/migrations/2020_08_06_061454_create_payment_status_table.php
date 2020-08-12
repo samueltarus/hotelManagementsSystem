@@ -18,6 +18,7 @@ class CreatePaymentStatusTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('client_id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->string('payment_status_name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -22,6 +22,8 @@ class CreateServicesTable extends Migration
             $table->string('service_name');
             $table->string('service_type');
             $table->string('service_description');
+            $table->boolean('status');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

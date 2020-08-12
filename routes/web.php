@@ -14,19 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/', function () {
-//     return view('frontend.index');
+//     return view('welcome');
 // });
 
 //frontend
-Route::get('/','FrontendController@frontend_index');
-Route::get('frontend-rooms','FrontendController@frontend_rooms');
+ Route::get('frontend-index','FrontendController@frontend_index');
+Route::get('/','FrontendController@frontend_rooms');
 Route::get('frontend-about','FrontendController@frontend_about');
 Route::get('frontend-booking','FrontendController@frontend_booking');
 Route::get('/frontend-room-details/{room_id}','FrontendController@frontend_room_details');
 
 
 
-Route::get('admin','DashboardController@admin');
+Route::get('/admin','DashboardController@admin');
 //employee routes
 Route::get('all-employees','EmployeeController@all_employees');
 Route::get('add_employee','EmployeeController@add_employee');
@@ -64,6 +64,11 @@ Route::post('save-room-type','BookingController@save_room_type');
 Route::get('add-room-service','BookingController@add_room_service');
 Route::post('save-room-service','BookingController@save_room_service');
 
+// cutsomers controller
+Route::get('all-customers','CustomerController@all_customers');
+Route::get('add-customer','CustomerController@add_customer');
+Route::post('save-customer','CustomerController@save_customer');
+
 //guestClientsController
 Route::get('all-guest','EmployeeController@all_guest');
 Route::get('checkin-guest','EmployeeController@checkin_guest');
@@ -78,6 +83,10 @@ Route::post('save-booking','BookingController@save_booking');
 //reservations
 
 Route::get('all-reservations','ReservationController@all_reservations');
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

@@ -25,6 +25,7 @@ class CreateCustomersTable extends Migration
             $table->string('city');
             $table->string('county');
             $table->string('driving_license');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
