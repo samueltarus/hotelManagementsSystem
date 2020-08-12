@@ -25,7 +25,8 @@
                        <thead>
                            <tr>
                                <th>Client ID</th>
-                               <th>client Name</th>
+                               <th>Client Name</th>
+                               <th>Client Rooms</th>
                                <th>Email</th>
                                <th>Mobile </th>
                                <th>Action</th>
@@ -37,14 +38,15 @@
                            <tr class="odd gradeX">
                            <td>{{$clients->client_id}}</td>
                                <td>{{$clients->client_name}}</td>
+                               <td>{{$clients->no_of_rooms}}</td>
                                <td>{{$clients->email}}</td>
                                <td class="center">{{$clients->phone_number}}</td>
 
                                <td class="text-right py-0 align-middle">
                                 <div class="btn-group btn-group-sm">
 
-                                <a href="" class="btn btn-info"><i class="fas fa-eye">Edit</i></a>
-                                <a href="" class="btn btn-danger"><i class="fas fa-trash">Delete</i></a>
+                                <a href="{{URL::to('/edit-client/'.$clients->client_id)}}" class="btn btn-info"><i class="fas fa-eye">Edit</i></a>
+                                <a href="{{URL::to('/delete-client/'.$clients->client_id)}}" class="btn btn-danger"><i class="fas fa-trash">Delete</i></a>
                                 </div>
                               </td>
 

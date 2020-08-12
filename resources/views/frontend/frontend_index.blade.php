@@ -62,7 +62,7 @@
             <li class="active"><a href="{{url('/')}}">Home</a></li>
             <li><a href="{{url('frontend-rooms')}}">Rooms</a></li>
             <li><a href="{{url('frontend-about')}}">About Us</a></li>
-                <li><a href="./pages.html">Pages</a>
+                <li><a href="./pages.html">Room Types</a>
                     <ul class="dropdown">
                         <li><a href="./room-details.html">Room Details</a></li>
                         <li><a href="#">Deluxe Room</a></li>
@@ -140,7 +140,7 @@
                                 <li class="active"><a href="{{url('/')}}">Home</a></li>
                                 <li><a href="{{url('frontend-rooms')}}">Rooms</a></li>
                                 <li><a href="{{url('frontend-about')}}">About Us</a></li>
-                                    <li><a href="./pages.html">Pages</a>
+                                    <li><a href="./pages.html">Room Types</a>
                                         <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
                                             <li><a href="./blog-details.html">Blog Details</a></li>

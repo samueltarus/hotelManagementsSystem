@@ -3,13 +3,13 @@
 @section('content')
 <div class="row">
     <!-- page header -->
-   <div class="col-lg-12">
+   <div class="col-lg-12  mx-auto">
        <h1 class="page-header">New Client</h1>
    </div>
    <!--end page header -->
 </div>
 <div class="row">
-   <div class="col-lg-12">
+   <div class="col-lg-6 offset-lg-3 mx-auto">
        <!-- Form Elements -->
        <div class="panel panel-default">
            <div class="panel-heading">

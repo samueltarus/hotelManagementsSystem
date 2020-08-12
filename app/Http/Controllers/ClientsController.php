@@ -24,7 +24,7 @@ class ClientsController extends Controller
     public function save_client(Request $request){
 
         $data =array();
-        
+
         $data['client_name']=$request->client_name;
         $data['no_of_rooms']=$request->no_of_rooms;
         $data['email'] = $request->email;
@@ -40,14 +40,33 @@ class ClientsController extends Controller
 
 
     }
-    public function edit_client(){
-        return view('admin.edit_client');
+    public function edit_client($client_id){
+         $clients =Client::find($client_id);
+        return view('admin.edit_client_details',compact('clients'));
 
     }
-    public function update_client($id){
+    public function update_client(Request $request, $client_id){
+
+        $data =array();
+
+        $data['client_name']=$request->client_name;
+        $data['no_of_rooms']=$request->no_of_rooms;
+        $data['email'] = $request->email;
+        $data['kra_pin']=$request->kra_pin;
+        $data['address']=$request->address;
+        $data['phone_number']=$request->phone_number;
+
+        DB::table('clients')
+            ->where('client_id',$client_id)
+            ->update($data);
+
+            return Redirect::to('all-clients');
 
     }
-  public function  delete_client($id){
+  public function  delete_client($client_id){
+
+    Client::find($client_id)->delete();
+    return Redirect::to('all-clients');
 
   }
 

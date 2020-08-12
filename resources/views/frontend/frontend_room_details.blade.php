@@ -7,7 +7,7 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sona | Template</title>
+    <title>Hotel Management System</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -189,10 +189,10 @@
 
                 <div class="col-lg-8">
                     <div class="room-details-item">
-                        <img src="img/room/room-details.jpg" alt="">
+                        <img src="{{asset('frontend/img/room/room-details.jpg')}}" alt="">
                         <div class="rd-text">
                             <div class="rd-title">
-                            <h3>{{$rooms->room_code}}</h3>
+                            <h3>{{$rooms->room_type_name}}</h3>
                                 <div class="rdt-right">
                                     <div class="rating">
                                         <i class="icon_star"></i>
@@ -221,7 +221,7 @@
                                     </tr>
                                     <tr>
                                         <td class="r-o">Services:</td>
-                                        <td>{{$rooms->services}}</td>
+                                        <td>{{$rooms->room_services_name}}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -338,7 +338,7 @@
                         </form>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>

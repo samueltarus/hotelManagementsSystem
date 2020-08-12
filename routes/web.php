@@ -45,18 +45,16 @@ Route::get('add-attendance','EmployeeController@add_attendance');
 Route::get('all-clients','ClientsController@all_clients');
 Route::get('add-client','ClientsController@add_client');
 Route::post('save-client','ClientsController@save_client');
-Route::get('edit-client','ClientsController@edit_client');
-Route::post('update-client','ClientsController@update_client');
-Route::get('edit-client','ClientsController@update_client');
-Route::get('delete-client','ClientsController@delete_client');
+Route::get('edit-client/{id}','ClientsController@edit_client');
+Route::post('update-client/{id}','ClientsController@update_client');
+Route::get('delete-client/{client_id}','ClientsController@delete_client');
 //booking
 Route::get('all-rooms','BookingController@all_rooms');
 Route::get('add-room','BookingController@add_room');
 Route::post('save-room','BookingController@save_room');
-Route::get('edit-room','BookingController@edit_client');
-Route::post('update-room','BookingController@update_client');
-Route::get('edit-room','BookingController@edit_room');
-Route::get('delete-room','BookingController@delete_room');
+Route::get('edit-room/{room_id}','BookingController@edit_room');
+Route::post('update-room/{room_id}','BookingController@update_client');
+Route::get('delete-room/{room_id}','BookingController@delete_room');
 
 //room type
 

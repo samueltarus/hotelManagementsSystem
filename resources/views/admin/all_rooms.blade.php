@@ -5,7 +5,7 @@
     <!--  page header -->
    <div class="col-lg-12">
 
-       <h1 class="page-header">Clients</h1>
+       <h1 class="page-header">Rooms</h1>
 
 
    </div>
@@ -17,7 +17,7 @@
        <!-- Advanced Tables -->
        <div class="panel panel-default">
            <div class="panel-heading">
-                Clients List
+                Rooms List
            </div>
            <div class="panel-body">
                <div class="table-responsive">
@@ -25,6 +25,7 @@
                        <thead>
                            <tr>
                                <th>Client ID</th>
+                               <th>Room Type</th>
                                <th>Room Code</th>
                                <th>Room Price</th>
                                <th>Status </th>
@@ -36,6 +37,7 @@
 
                            <tr class="odd gradeX">
                            <td>{{$rooms->client_id}}</td>
+                           <th>{{$rooms->room_type_id}}</th>
                                <td>{{$rooms->room_code}}</td>
                                <td>{{$rooms->room_price}}</td>
                                <td class="center">{{$rooms->status}}</td>
@@ -43,8 +45,8 @@
                                <td class="text-right py-0 align-middle">
                                 <div class="btn-group btn-group-sm">
 
-                                <a href="" class="btn btn-info"><i class="fas fa-eye">Edit</i></a>
-                                <a href="" class="btn btn-danger"><i class="fas fa-trash">Delete</i></a>
+                                <a href="{{URL::to('/edit-room/'.$rooms->room_id)}}" class="btn btn-info"><i class="fas fa-eye">Edit</i></a>
+                                <a href="{{URL::to('/delete-room/'.$rooms->room_id)}}" class="btn btn-danger"><i class="fas fa-trash">Delete</i></a>
                                 </div>
                               </td>
 

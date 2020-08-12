@@ -14,7 +14,13 @@ class FrontendController extends Controller
         return view('frontend.frontend_index',compact('rooms'));
     }
     public function frontend_rooms(){
-        $rooms=Rooms::all();
+        $rooms = DB::table('rooms')
+        ->join('room_types', 'rooms.room_type_id',  '=', 'room_types.room_type_id')
+        ->join('services', 'rooms.service_id',  '=', 'services.service_id')
+        ->select('rooms.*', 'room_types.room_type_name','services.room_services_name')
+        ->get();
+
+        // $rooms=Rooms::all();
         return view('frontend.frontend_rooms',compact('rooms'));
 
     }
@@ -32,7 +38,14 @@ class FrontendController extends Controller
     }
     public function frontend_room_details($room_id){
 
-        $rooms =Rooms::find($room_id);
+
+        $rooms = DB::table('rooms')
+        ->join('room_types', 'rooms.room_type_id',  '=', 'room_types.room_type_id')
+        ->join('services', 'rooms.service_id',  '=', 'services.service_id')
+        ->select('rooms.*', 'room_types.room_type_name','services.room_services_name')
+        ->get();
+
+          $rooms =Rooms::find($room_id);
         return view('frontend.frontend_room_details',compact('rooms','room_id'));
 
     }

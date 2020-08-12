@@ -21,7 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('kra_pin');
             $table->string('address');
             $table->integer('phone_number');
-
+            $$table->softDeletes();
 
             $table->timestamps();
         });
