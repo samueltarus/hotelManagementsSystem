@@ -19,9 +19,9 @@ class BookingController extends Controller
 
     public function all_booking(){
 
-        $booked =DB::select('select * from booked ');
+        $book =DB::select('select * from book ');
 
-        return view('admin.all_booking',compact('booked'));
+        return view('admin.all_booking',compact('book'));
     }
 
 
@@ -53,7 +53,7 @@ class BookingController extends Controller
 
          $rooms =DB::select('select client_name ,client_id from Clients ');
          $room_types =DB::select('select room_type_name ,room_type_id from room_types ');
-         $room_services =DB::select('select room_services_name  ,service_id from services');
+         $room_services =DB::select('select service_name  ,service_id from services');
         return view('admin.add_room',compact('rooms','room_types','room_services'));
 
     }
@@ -185,7 +185,7 @@ public function save_room_service(Request $request){
    $data =array();
 
    $data['client_id']=$request->client_id;
-   $data['room_services_name']=$request->room_services_name;
+   $data['service_name']=$request->service_name;
    $data['service_description']=$request->service_description;
 
    $data['status'] = $request->status;

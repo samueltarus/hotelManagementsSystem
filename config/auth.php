@@ -55,7 +55,7 @@ return [
         'admin-api' => [
             'driver'=>'token',
             'provider' => 'admins',
-            'hash' => false,
+            //'hash' => false,
         ],
 
     ],
@@ -88,10 +88,14 @@ return [
         ],
 
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'users' => [
+            'driver' => 'database',
+            'table' => 'users',
+        ],
+        'admins' => [
+            'driver' => 'database',
+            'table' => 'admins',
+        ],
 
     ],
 

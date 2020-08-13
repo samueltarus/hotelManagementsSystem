@@ -18,7 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('client_id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('booking_id');
-            $table->foreign('booking_id')->references('booking_id')->on('booking')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('booking_id')->references('booking_id')->on('book')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('payment_status_id');
             $table->foreign('payment_status_id')->references('payment_status_id')->on('payment_status')->onDelete('cascade')->onUpdate('cascade');
             $table->string('payment_method');

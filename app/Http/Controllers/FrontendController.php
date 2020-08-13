@@ -21,7 +21,7 @@ class FrontendController extends Controller
         ->join('room_types', 'rooms.room_type_id',  '=', 'room_types.room_type_id')
         ->join('clients', 'rooms.client_id',  '=', 'clients.client_id')
         ->join('services', 'rooms.service_id',  '=', 'services.service_id')
-        ->select('rooms.*', 'room_types.room_type_name','clients.client_name','services.room_services_name' )
+        ->select('rooms.*', 'room_types.room_type_name','clients.client_name','services.service_name' )
         ->get();
 
         // $rooms = DB::table('rooms')
@@ -50,7 +50,7 @@ class FrontendController extends Controller
         $rooms = DB::table('rooms')
         ->join('room_types', 'rooms.room_type_id',  '=', 'room_types.room_type_id')
         ->join('services', 'rooms.service_id',  '=', 'services.service_id')
-        ->select('rooms.*', 'room_types.room_type_name','services.room_services_name','services.service_description')
+        ->select('rooms.*', 'room_types.room_type_name','services.service_name','services.service_description')
         ->get();
         // dd($rooms);
         $rooms =Rooms::find($room_id);

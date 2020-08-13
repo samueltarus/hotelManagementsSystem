@@ -32,7 +32,8 @@ class CreateRoomsTable extends Migration
             $table->string('payment_contact_person');
             $table->integer('status');
             $table->softDeletes();
-           $table->timestamps();
+            $table->timestamps();
+
         });
     }
 
@@ -43,6 +44,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('rooms');
     }
 }

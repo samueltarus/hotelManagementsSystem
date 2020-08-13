@@ -30,15 +30,15 @@
                            </tr>
                        </thead>
                        <tbody>
-                           @foreach ($booked as $booked)
+                           @foreach ($book as $book)
 
 
                            <tr class="odd gradeX">
-                               <td>{{$booked->booking_id}}</td>
-                               <td>{{$booked->customer_phone_number}}</td>
-                               <td>{{$booked->customer_id}}</td>
-                               <td>{{$booked->customer_check_in}}</td>
-                               <td>{{$booked->customer_check_out}}</td>
+                               <td>{{$book->booking_id}}</td>
+                               <td>{{$book->customer_phone_number}}</td>
+                               <td>{{$book->customer_id}}</td>
+                               <td>{{$book->customer_check_in}}</td>
+                               <td>{{$book->customer_check_out}}</td>
                                <td class="text-right py-0 align-middle">
                                 <div class="btn-group btn-group-sm">
                                 {{-- @if ($house->house_status==0) --}}

@@ -210,7 +210,7 @@
                                     </tr>
                                     <tr>
                                         <td class="r-o">Services:</td>
-                                        <td>{{$rooms->room_services_name}}</td>
+                                        <td>{{$rooms->service_name}}</td>
                                     </tr>
                                 </tbody>
                             </table>

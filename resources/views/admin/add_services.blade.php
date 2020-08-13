@@ -33,8 +33,8 @@
                         {{-- <input type="text" class="form-control" placeholder="Enter Client Name" id="client_name"> --}}
                       </div>
                       <div class="form-group">
-                        <label for="room_services_name"> Room Services:</label>
-                        <input type="text" class="form-control" placeholder="Enter Room Services" name="room_services_name" id="room_services_name" required>
+                        <label for="service_name"> Room Services:</label>
+                        <input type="text" class="form-control" placeholder="Enter Room Services" name="service_name" id="service_name" required>
                       </div>
                       <div class="form-group">
                         <label for="service_description"> Service Description:</label>

@@ -18,7 +18,7 @@ class CreateReservationsTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->foreign('customer_id')->references('customer_id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('booking_id');
-            $table->foreign('booking_id')->references('booking_id')->on('booking')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('booking_id')->references('booking_id')->on('book')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('client_id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->date('reservation_date');

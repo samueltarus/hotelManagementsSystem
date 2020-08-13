@@ -46,7 +46,7 @@
                         <label for="service_id">Room Service:</label>
                         <select class="form-control" name="service_id" id="service_id" required>
                             @foreach ($room_services as $room_services)
-                            <option value="{{$room_services->service_id}}">{{$room_services->room_services_name}}</option>
+                            <option value="{{$room_services->service_id}}">{{$room_services->service_name}}</option>
                              @endforeach
                         </select>
 
@@ -90,7 +90,7 @@
                             <input type="checkbox" name="status" id="status" value="0" checked>Status
                         </label>
                     </div>
-                    
+
 
 
                            <button type="submit" class="btn btn-primary">Save Room</button>

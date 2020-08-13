@@ -17,8 +17,8 @@ class ReservationController extends Controller
 
     public function all_reservations(){
 
-        $booked =DB::select('select * from booked ');
+        $book =DB::select('select * from book ');
 
-        return view('admin.all_reservation',compact('booked'));
+        return view('admin.all_reservation',compact('book'));
     }
 }
