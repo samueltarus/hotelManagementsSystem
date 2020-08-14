@@ -17,16 +17,36 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+
+
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+
+
+Route::view('/home', 'home')->middleware('auth');
+Route::view('/admin', 'admin');
+
+
 //frontend
  Route::get('frontend-index','FrontendController@frontend_index');
-Route::get('/','FrontendController@frontend_rooms');
+ Route::get('/','FrontendController@frontend_rooms');
 Route::get('frontend-about','FrontendController@frontend_about');
 Route::get('frontend-booking','FrontendController@frontend_booking');
 Route::get('/frontend-room-details/{room_id}','FrontendController@frontend_room_details');
 
 
 
-Route::get('/admin','DashboardController@admin');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin','DashboardController@admin')->middleware('auth');
+Route::get('all-users','DashboardController@all_users');
 //employee routes
 Route::get('all-employees','EmployeeController@all_employees');
 Route::get('add_employee','EmployeeController@add_employee');
@@ -85,6 +105,11 @@ Route::post('save-booking','BookingController@save_booking');
 Route::get('all-reservations','ReservationController@all_reservations');
 
 
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

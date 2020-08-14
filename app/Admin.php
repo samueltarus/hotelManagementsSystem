@@ -14,7 +14,7 @@ class Admin extends Authenticatable
     use Notifiable;
 
 
-    protected $guard = 'admin';
+    protected $guard = 'user';
 
     /**
      * The attributes that are mass assignable.
@@ -23,7 +23,7 @@ class Admin extends Authenticatable
      */
     protected $fillable = [
 
-        'name', 'email', 'password', 'job_title',
+        'name', 'email', 'password',
 
     ];
 

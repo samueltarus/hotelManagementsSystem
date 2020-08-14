@@ -1,17 +1,39 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootsrtap Free Admin Template - SIMINTA | Admin Dashboad Template</title>
+    <!-- Core CSS - Include with every page -->
+    <link href="{{asset('backend/plugins/bootstrap/bootstrap.css')}}" rel="stylesheet" />
+    <link href="{{asset('backend/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
+    <link href="{{asset('backend/plugins/pace/pace-theme-big-counter.css')}}" rel="stylesheet" />
+    <link href="{{asset('backend/css/style.css')}}" rel="stylesheet" />
+    <link href="{{asset('backend/css/main-style.css')}}" rel="stylesheet" />
+    <!-- Page-Level CSS -->
+    <link href="{{asset('backend/plugins/morris/morris-0.4.3.min.css')}}" rel="stylesheet" />
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+</head>
 
-                        <div class="form-group row">
+<body class="body-Login-back">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
+              <img src="assets/img/logo.png" alt=""/>
+                </div>
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ __('Register') }}</h3>
+                    </div>
+                    <div class="panel-body">
+                            <form method="POST" action="{{ route('register') }}">
+                            @csrf
+                            <fieldset>
+                                 <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -68,10 +90,20 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+
+     <!-- Core Scripts - Include with every page -->
+     <script src="{{asset('backend/plugins/jquery-1.10.2.js')}}"></script>
+     <script src="{{asset('backend/plugins/bootstrap/bootstrap.min.js')}}"></script>
+     <script src="{{asset('backend/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
+     <script src="{{asset('backend/plugins/pace/pace.js')}}"></script>
+     <script src="{{asset('backend/scripts/siminta.js')}}"></script>
+</body>
+
+</html>

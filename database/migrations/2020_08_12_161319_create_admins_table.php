@@ -17,7 +17,7 @@ class CreateAdminsTable extends Migration
             $table->increments('admin_id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('job_title');
+            $table->boolean('is_admin')->default(false);
             $table->string('password');
             $table->rememberToken();
             $table->softDeletes();

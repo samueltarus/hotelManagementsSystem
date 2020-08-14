@@ -10,6 +10,11 @@
 </div>
 
 <div class="row">
+    {{-- @if (session('status'))
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+@endif --}}
     {{-- <!-- Welcome -->
     <div class="col-lg-12">
         <div class="alert alert-info">

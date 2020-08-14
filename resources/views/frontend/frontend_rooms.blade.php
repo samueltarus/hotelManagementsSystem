@@ -108,13 +108,14 @@
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
                             <a href="{{url('frontend-index')}}" class="bk-btn">Book Now</a>
+
                             <div class="language-option">
                                 <img src="img/flag.jpg" alt="">
-                                <span>EN <i class="fa fa-angle-down"></i></span>
+                                <span>Kenya<i class="fa fa-angle-down"></i></span>
                                 <div class="flag-dropdown">
                                     <ul>
-                                        <li><a href="#">Zi</a></li>
-                                        <li><a href="#">Fr</a></li>
+                                        <li><a href="#">Tz</a></li>
+                                        <li><a href="#">Ug</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -217,7 +218,7 @@
                         <a href="{{URL::to('/frontend-room-details/'.$rooms->room_id)}}" class="primary-btn">More Details</a>
                         <div class="header-configure-area">
 
-                            <a href="{{url('frontend-index')}}" class="bk-btn">BOOK NOW</a>
+                            <a href="{{url('frontend-index')}}" class="bt-primary">BOOK NOW</a>
                         </div>
                         </div>
                     </div>

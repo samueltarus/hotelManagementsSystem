@@ -16,6 +16,13 @@
 <body>
     <!--  wrapper -->
     <div id="wrapper">
+        @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in!') }}
         <!-- navbar top -->
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="navbar">
             <!-- navbar-header -->
@@ -26,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-            <a class="navbar-brand" href="{{url('/')}}">
+                <a class="navbar-brand" href="index.html">
                     Talii Hotel
                     {{-- <img src="{{asset('backend/img/logo.png')}}" alt="" /> --}}
                 </a>
@@ -46,7 +53,12 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i>Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                        <li><a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-fw"></i>Logout</a>
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
                         </li>
                     </ul>
                     <!-- end dropdown-user -->
@@ -71,7 +83,7 @@
                                 <img src="{{asset('backend/img/user.jpg')}}" >
                             </div>
                             <div class="user-info">
-                                <div>User <strong>Name</strong></div>
+                                <div>{{ Auth::user()->name }}</div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
@@ -113,8 +125,8 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Booking<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{url('all-booking')}}">Booking List</a></li>
-                            {{-- <li><a href="{{url('all-booked-rooms')}}">Booked Rooms</a></li>
-                            <li><a href="{{url('all-booked-halls')}}">Booked Halls</a></li> --}}
+                            <li><a href="{{url('all-booked-rooms')}}">Booked Rooms</a></li>
+                            <li><a href="{{url('all-booked-halls')}}">Booked Halls</a></li>
 
                         </ul>
                         <!-- second-level-items -->
@@ -135,7 +147,7 @@
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reservation<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{url('all-reservations')}}">Reservation List</a></li>
+                            <li><a href="{{url('all-reservation')}}">Reservation List</a></li>
 								<li><a href="payments.html">Payments</a></li>
 								<li><a href="expenses.html">Expenses</a></li>
 								<li><a href="taxes.html">Taxes</a></li>
@@ -149,16 +161,16 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Customers<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{url('all-customers')}}">Customers List</a>
+                                <a href="{{url('all-guest')}}">Customers List</a>
                             </li>
                             <li>
-                                <a href="{{url('add-customer')}}">Add Customer</a>
+                                <a href="{{url('checkin-guest')}}">Add Customer</a>
                             </li>
                             <li>
-                                <a href="{{url('checkin-customers')}}">Checked In</a>
+                                <a href="{{url('checkin-guest')}}">Checked In</a>
                             </li>
                             <li>
-                                <a href="{{url('checkout-customers')}}">Checked Out</a>
+                                <a href="{{url('checkout-guest')}}">Checked Out</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->
@@ -223,8 +235,9 @@
                                 <a href="login.html">Lock System</a>
                             </li>
                             <li>
-                                <a href="login.html">Users</a>
+                            <a href="{{ url('all-users')}}">Users</a>
                             </li>
+
                         </ul>
                         <!-- second-level-items -->
                     </li>
