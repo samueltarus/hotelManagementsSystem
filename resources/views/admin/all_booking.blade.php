@@ -22,10 +22,11 @@
                            <tr>
                                <th>Client Name</th>
                                <th>Customer Phone Number</th>
-                               <th>Customer ID </th>
+                               <th>Customer Username</th>
+                               <th>Customer National ID |Passport </th>
                                <th>Checked In </th>
                                <th>Checked Out</th>
-                               <th>Status </th>
+                               <th> Booking Status </th>
                                <th>Actions</th>
                            </tr>
                        </thead>
@@ -36,21 +37,21 @@
                            <tr class="odd gradeX">
                                <td>{{$book->booking_id}}</td>
                                <td>{{$book->customer_phone_number}}</td>
-                               <td>{{$book->customer_id}}</td>
+                               <td>{{$book->customer_username}}</td>
+                               <td>{{$book->booking_id}}</td>
                                <td>{{$book->customer_check_in}}</td>
                                <td>{{$book->customer_check_out}}</td>
-                               <td class="text-right py-0 align-middle">
-                                <div class="btn-group btn-group-sm">
-                                {{-- @if ($house->house_status==0) --}}
-                                <a class="btn btn-danger" href="#">Pending
+                               <td>
+                                @if ($book->booking_status==0)
+                                <a class="btn btn-danger" href="{{URL::to('/unactive-book/'.$book->booking_id)}}">Pending Booking
                                         <i class="fas fa-thumbs-down"></i>
                                     </a>
-                                    {{-- @else --}}
-                                    <a class="btn btn-success" href="#">Approved
+                                    @else
+                                    <a class="btn btn-success" href="{{URL::to('/active-book/'.$book->booking_id)}}">Approved Booking
                                         <i class="fas fa-thumbs-up"></i>
                                     </a>
-                                </div>
-                               </td>
+                                    @endif
+                            </td>
                                <td>
                                     {{-- @endif --}}
                                 <a href="#" class="btn btn-info"> <i class="fas fa-eye">Edit</i></a>

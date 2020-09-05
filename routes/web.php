@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,36 +18,24 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
-
-Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
-
-
-Route::post('/login/admin', 'Auth\LoginController@adminLogin');
-
-Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
-
-
-Route::view('/home', 'home')->middleware('auth');
-Route::view('/admin', 'admin');
+Auth::routes();
 
 
 //frontend
- Route::get('frontend-index','FrontendController@frontend_index');
- Route::get('/','FrontendController@frontend_rooms');
+Route::get('frontend-index','FrontendController@frontend_index');
+Route::get('/','FrontendController@frontend_rooms');
 Route::get('frontend-about','FrontendController@frontend_about');
 Route::get('frontend-booking','FrontendController@frontend_booking');
 Route::get('/frontend-room-details/{room_id}','FrontendController@frontend_room_details');
 
 
 
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/admin','DashboardController@admin')->middleware('auth');
+ Route::get('admin','DashboardController@admin')->middleware('admin');
 Route::get('all-users','DashboardController@all_users');
+Route::get('unactive-employee/{id}','DashboardController@unactive_employee');
+Route::get('active-admin/{id}','DashboardController@active_admin');
+
+
 //employee routes
 Route::get('all-employees','EmployeeController@all_employees');
 Route::get('add_employee','EmployeeController@add_employee');
@@ -68,13 +57,19 @@ Route::post('save-client','ClientsController@save_client');
 Route::get('edit-client/{id}','ClientsController@edit_client');
 Route::post('update-client/{id}','ClientsController@update_client');
 Route::get('delete-client/{client_id}','ClientsController@delete_client');
-//booking
+
+Route::get('unactive-client/{client_id}','ClientsController@unactive_client');
+Route::get('active-client/{client_id}','ClientsController@active_client');
+//Rooms
 Route::get('all-rooms','BookingController@all_rooms');
 Route::get('add-room','BookingController@add_room');
 Route::post('save-room','BookingController@save_room');
 Route::get('edit-room/{room_id}','BookingController@edit_room');
 Route::post('update-room/{room_id}','BookingController@update_client');
 Route::get('delete-room/{room_id}','BookingController@delete_room');
+
+
+
 
 //room type
 
@@ -89,6 +84,8 @@ Route::get('all-customers','CustomerController@all_customers');
 Route::get('add-customer','CustomerController@add_customer');
 Route::post('save-customer','CustomerController@save_customer');
 
+Route::get('send-email','CustomerController@send_welcome_customer');
+
 //guestClientsController
 Route::get('all-guest','EmployeeController@all_guest');
 Route::get('checkin-guest','EmployeeController@checkin_guest');
@@ -97,6 +94,9 @@ Route::get('checkout-guest','EmployeeController@checkout_guest');
 //booking routes
 Route::get('all-booking','BookingController@all_booking');
 Route::post('save-booking','BookingController@save_booking');
+
+Route::get('unactive-book/{booking_id}','BookingController@unactive_book');
+Route::get('active-book/{booking_id}','BookingController@active_book');
 
 //payments
     Route::get('all-payments','PaymentsController@all_payments');
@@ -109,7 +109,6 @@ Route::get('all-reservations','ReservationController@all_reservations');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\str_random;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\welcome;
 
 class CustomerController extends Controller
 {
@@ -44,5 +46,15 @@ class CustomerController extends Controller
         DB::table('customers')->insert($data);
 
         return Redirect::to('all-customers');
+    }
+
+    public $customer_name;
+    //mail
+    public function send_welcome_customer(){
+
+        Mail::to('admin@gmail.com')->send(new welcome());
+
+        dd('here');
+
     }
 }

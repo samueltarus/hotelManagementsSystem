@@ -10,15 +10,19 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\str_random;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Mail\BookingMail;
+use Illuminate\Support\Facades\Mail;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class ClientsController extends Controller
 {
     public function all_clients(){
-        
-        $clients=Client::all();
+
+        $clients=Client::all()->orderBy('asc');
         return view('admin.all_clients',compact('clients'));
     }
     public function add_client(){
+
         return view('admin.add_client');
 
     }
@@ -34,7 +38,10 @@ class ClientsController extends Controller
         $data['phone_number']=$request->phone_number;
 
         DB::table('clients')->insert($data);
+        // Mail::to($data['email'])->send(new BookingMail($data));
 
+        //   return $data;
+        // Session::flash('success','thanks for adding review!');
 
         return Redirect::to('all-clients');
 
@@ -71,5 +78,25 @@ class ClientsController extends Controller
 
   }
 
+
+  public function active_client($client_id){
+
+    $Houses= DB::table('clients')
+                    ->where('client_id',$client_id)
+                    ->update(['client_status'=>0]);
+
+    return Redirect::to('all-clients');
+
+ }
+
+ public function unactive_client($client_id){
+
+    $Houses= DB::table('clients')
+                    ->where('client_id',$client_id)
+                    ->update(['client_status'=>1]);
+
+    return Redirect::to('all-clients');
+
+ }
 
 }

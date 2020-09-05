@@ -37,6 +37,7 @@
                         <input type="text" class="form-control" placeholder="Enter Room Type" name="room_type_name" id="room_type_name" required>
                       </div>
 
+
                       <div class="radio">
                         <label>
                             <input type="checkbox" name="status" id="status" value="1" checked>Status

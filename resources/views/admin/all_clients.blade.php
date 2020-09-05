@@ -5,7 +5,7 @@
     <!--  page header -->
    <div class="col-lg-12">
 
-       <h1 class="page-header">Clients</h1>
+       <h1 class="page-header"> All Clients</h1>
 
 
    </div>
@@ -29,6 +29,7 @@
                                <th>Client Rooms</th>
                                <th>Email</th>
                                <th>Mobile </th>
+                               <th>Status</th>
                                <th>Action</th>
                            </tr>
                        </thead>
@@ -41,7 +42,17 @@
                                <td>{{$clients->no_of_rooms}}</td>
                                <td>{{$clients->email}}</td>
                                <td class="center">{{$clients->phone_number}}</td>
-
+                               <td>
+                                @if ($clients->client_status==0)
+                                <a class="btn btn-danger" href="{{URL::to('/unactive-client/'.$clients->client_id)}}">UnActive Client
+                                        <i class="fas fa-thumbs-down"></i>
+                                    </a>
+                                    @else
+                                    <a class="btn btn-success" href="{{URL::to('/active-client/'.$clients->client_id)}}">Active Client
+                                        <i class="fas fa-thumbs-up"></i>
+                                    </a>
+                                    @endif
+                            </td>
                                <td class="text-right py-0 align-middle">
                                 <div class="btn-group btn-group-sm">
 

@@ -31,6 +31,7 @@ class CreateRoomsTable extends Migration
             $table->string('payment_account_number');
             $table->string('payment_contact_person');
             $table->integer('status');
+            $table->string('avatar');
             $table->softDeletes();
             $table->timestamps();
 

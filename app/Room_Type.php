@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Rooms;
 
 class Room_Type extends Model
 {
@@ -12,4 +13,8 @@ class Room_Type extends Model
     protected $fillable = [
          'client_id','rom_type_name','status',
     ];
+
+    public function room(){
+        return $this->belongsTo('App\Rooms');
+    }
 }

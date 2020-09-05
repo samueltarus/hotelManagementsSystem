@@ -4,7 +4,7 @@
 <div class="row">
     <!--  page header -->
    <div class="col-lg-12">
-       <h1 class="page-header">Tables</h1>
+       <h1 class="page-header">Customer Payments</h1>
    </div>
     <!-- end  page header -->
 </div>
@@ -13,18 +13,18 @@
        <!-- Advanced Tables -->
        <div class="panel panel-default">
            <div class="panel-heading">
-                Advanced Tables
+                Payments
            </div>
            <div class="panel-body">
                <div class="table-responsive">
                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                        <thead>
                            <tr>
-                               <th>Rendering engine</th>
-                               <th>Browser</th>
-                               <th>Platform(s)</th>
-                               <th>Engine version</th>
-                               <th>CSS grade</th>
+                               <th>Customer Name</th>
+                               <th>Customer Phone number</th>
+                               <th>Transaction Code</th>
+                               <th>Total Amount Payed</th>
+
                            </tr>
                        </thead>
                        <tbody>
@@ -35,20 +35,7 @@
                                <td class="center">4</td>
                                <td class="center">X</td>
                            </tr>
-                           <tr class="even gradeC">
-                               <td>Trident</td>
-                               <td>Internet Explorer 5.0</td>
-                               <td>Win 95+</td>
-                               <td class="center">5</td>
-                               <td class="center">C</td>
-                           </tr>
-                           <tr class="odd gradeA">
-                               <td>Trident</td>
-                               <td>Internet Explorer 5.5</td>
-                               <td>Win 95+</td>
-                               <td class="center">5.5</td>
-                               <td class="center">A</td>
-                           </tr>
+
 
                        </tbody>
                    </table>

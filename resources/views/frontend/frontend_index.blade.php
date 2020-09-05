@@ -55,19 +55,21 @@
                     </ul>
                 </div>
             </div>
-            <a href="{{url('index')}}" class="bk-btn">Book Now</a>
+            <a href="{{url('frontend-index')}}" class="bk-btn">Book Now</a>
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li><a href="{{url('index')}}">Home</a></li>
+                <li><a href="{{url('frontend-index')}}">Home</a></li>
                 <li class="active"><a href="{{url('/')}}">Rooms</a></li>
             <li><a href="{{url('frontend-about')}}">About Us</a></li>
                 <li><a href="./pages.html">Room Types</a>
                     <ul class="dropdown">
-                        <li><a href="./room-details.html">Room Details</a></li>
-                        <li><a href="#">Deluxe Room</a></li>
+
+                        <li><a href="./blog-details.html">Deluxe Room</a></li>
                         <li><a href="#">Family Room</a></li>
                         <li><a href="#">Premium Room</a></li>
+                        <li><a href="#">Single Rooms</a></li>
+                        <li><a href="#">Double Rooms</a></li>
                     </ul>
                 </li>
                 <li><a href="./blog.html">News</a></li>
@@ -137,15 +139,17 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                    <li><a href="{{url('index')}}">Home</a></li>
+                                    <li><a href="{{url('frontend-index')}}">Home</a></li>
                                     <li class="active"><a href="{{url('/')}}">Rooms</a></li>
                                 <li><a href="{{url('frontend-about')}}">About Us</a></li>
                                     <li><a href="./pages.html">Room Types</a>
                                         <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>
-                                            <li><a href="./blog-details.html">Blog Details</a></li>
+                                            <li><a href="./blog-details.html">Delukes Room</a></li>
                                             <li><a href="#">Family Room</a></li>
                                             <li><a href="#">Premium Room</a></li>
+                                            <li><a href="#">Single Rooms</a></li>
+                                            <li><a href="#">Double Rooms</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="./blog.html">News</a></li>
@@ -181,6 +185,14 @@
                     <form action="{{url('save-booking')}}"  method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
+                            <label for="customer_first_name"> First Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter first Name" name="customer_first_name" id="customer_first_name" required>
+                          </div>
+                          <div class="form-group">
+                            <label for="customer_lastname"> Last Name :</label>
+                            <input type="text" class="form-control" placeholder="Enter Phone Number" name="customer_lastname" id="customer_lastname" required>
+                          </div>
+                        <div class="form-group">
                             <label for="customer_phone_number"> Phone Number:</label>
                             <input type="text" class="form-control" placeholder="Enter Phone Number" name="customer_phone_number" id="customer_phone_number" required>
                           </div>
@@ -190,13 +202,13 @@
                           </div>
                             <div class="check-date">
                                 <label for="customer_check_in">Check In:</label>
-                                <input type="text" class="date-input" id="customer_check_in" name="customer_check_in" required>
-                                <i class="icon_calendar"></i>
+                                <input type="date"  id="customer_check_in" name="customer_check_in" required>
+                                {{-- <i class="icon_calendar"></i> --}}
                             </div>
                             <div class="check-date">
                                 <label for="customer_check_out">Check Out:</label>
-                                <input type="text" class="date-input" id="customer_check_out" name="customer_check_out" required>
-                                <i class="icon_calendar"></i>
+                                <input type="date"  id="customer_check_out" name="customer_check_out" required>
+                                {{-- <i class="icon_calendar"></i> --}}
                             </div>
                             <div class="select-option">
                                 <label for="guest">Guests:</label>
@@ -218,8 +230,8 @@
                                 </select>
                             </div>
                             <div class="select-option">
-                                <label for="guest">Children:</label>
-                                <select id="guest" name="guest" required>
+                                <label for="children">Children:</label>
+                                <select id="children" name="children" required>
                                     <option >No Children</option>
                                     <option >1 Children</option>
                                     <option >2 Children</option>
@@ -238,28 +250,26 @@
                                 </select>
                             </div>
                             <div class="select-option">
-                                <label for="room_id">Room Type:</label>
-                                <select id="guest" name="guest" required>
+                                <label for="room_type_id">Room Type:</label>
+                                <select id="room_type_id" name="room_type_id" required>
+                                    @foreach ($rooms as $rooms)
+                                    <option value="{{$rooms->room_type_id}}">{{$rooms->room_type_name}}</option>
+                                     @endforeach
+                                </select>
+                                {{-- <select id="guest" name="guest" required>
                                     <option >Double or Twin</option>
                                     <option >Double or Twin Room</option>
                                     <option >Tripple Room</option>
                                     <option >Single Room</option>
 
-                                </select>
+                                </select> --}}
                                 {{-- <select id="room_id" name="room_id" required>
                                     @foreach ($rooms as $rooms)
                                     <option value="{{$rooms->room_id}}">{{$rooms->room_code}}</option>
                                      @endforeach
                                 </select> --}}
                             </div>
-                            <div class="select-option">
-                                <label for="room_id">Room:</label>
-                                <select id="room_id" name="room_id" required>
-                                    @foreach ($rooms as $rooms)
-                                    <option value="{{$rooms->room_id}}">{{$rooms->room_code}}</option>
-                                     @endforeach
-                                </select>
-                            </div>
+
                             <button type="submit">Book</button>
                         </form>
                     </div>
@@ -379,6 +389,10 @@
         <div class="container-fluid">
             <div class="hp-room-items">
                 <div class="row">
+
+                    @foreach ($rooms as $item)
+
+                    @endforeach
                     <div class="col-lg-3 col-md-6">
                         <div class="hp-room-item set-bg" data-setbg="img/room/room-b1.jpg">
                             <div class="hr-text">

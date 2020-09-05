@@ -70,7 +70,7 @@
                       </div>
                       <div class="radio">
                         <label>
-                            <input type="checkbox" name="status" id="status" value="1" checked>Status
+                            <input type="checkbox" name="status" id="status" value="0" checked>Status
                         </label>
                     </div>
                            <button type="submit" class="btn btn-primary">Save Employee</button>

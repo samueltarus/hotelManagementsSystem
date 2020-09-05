@@ -16,26 +16,21 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-
-
-
     public function handle($request, Closure $next, $guard = null)
     {
-        if ($guard == "admin" && Auth::guard($guard)->check()) {
-            return redirect('/admin');
+        if (Auth::guard($guard)->check() && Auth::user()->role->id==1) {
+
+            return view('admin.dashboard');
+
+        } elseif (Auth::guard($guard)->check() && Auth::user()->role->id==2) {
+
+            return view('booking.dasboard');
+
+
+        }
+        else {
+            return $next($request);
         }
 
-        if (Auth::guard($guard)->check()) {
-            return redirect('/admin');
-        }
-        return $next($request);
     }
-    // public function handle($request, Closure $next, $guard = null)
-    // {
-    //     if (Auth::guard($guard)->check()) {
-    //         return redirect(RouteServiceProvider::HOME);
-    //     }
-
-    //     return $next($request);
-    // }
 }

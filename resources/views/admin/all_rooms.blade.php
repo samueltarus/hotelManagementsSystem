@@ -26,6 +26,7 @@
                            <tr>
                                <th>Client Name</th>
                                <th>Room Type</th>
+                               <th>Room Image</th>
                                <th>Room Code</th>
                                <th>Room Price</th>
                                <th>Status </th>
@@ -38,6 +39,9 @@
                            <tr class="odd gradeX">
                            <td>{{$rooms->client_name}}</td>
                            <th>{{$rooms->room_type_name}}</th>
+                           <td>
+                            <img style="height:100px ; width:100px"; src="{{URL::to($rooms->avatar)}}" class="rounded-circle" >
+                           </td>
                                <td>{{$rooms->room_code}}</td>
                                <td>{{$rooms->room_price}}</td>
                                <td class="center">{{$rooms->status}}</td>

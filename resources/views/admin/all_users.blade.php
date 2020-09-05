@@ -5,7 +5,7 @@
     <!--  page header -->
    <div class="col-lg-12">
 
-       <h1 class="page-header">Users</h1>
+       <h1 class="page-header">System Users And Roles</h1>
 
 
    </div>
@@ -27,8 +27,8 @@
 
                                <th>Name</th>
                                <th>Email</th>
-                               {{-- <th>Mobile </th> --}}
-                               <th>Role</th>
+                               {{-- <th> User Roles</th> --}}
+                               <th>Actions</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -37,26 +37,21 @@
 
                                <td>{{$users->name}}</td>
                                 <td>{{$users->email}}</td>
+                             {{-- <td>{{$users->role_id}}</td> --}}
+                             {{-- <td>{{$role->name}}</td> --}}
                                 <td>
-                                    @if ($users->is_admin==0)
-                                    <a class="btn btn-danger" href="#">Employee
+                                    @if ($users->role_id==0)
+                                    <a class="btn btn-danger" href="{{URL::to('/unactive-employee/'.$users->id)}}"> Deactive
                                             <i class="fas fa-thumbs-down"></i>
                                         </a>
+
                                         @else
-                                        <a class="btn btn-success" href="#">Admin
+                                        <a class="btn btn-success" href="{{URL::to('/active-admin/'.$users->id)}}"> Active
                                             <i class="fas fa-thumbs-up"></i>
                                         </a>
                                         @endif
                                 </td>
-                                {{-- <td class="text-right">
-                                <div class="dropdown dropdown-action">
-                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="edit-employee.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                    </div>
-                                </div>
-                                 </td> --}}
+
 
                            </tr>
                            @endforeach

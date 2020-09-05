@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\str_random;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Mail\BookingMail;
+use Illuminate\Support\Facades\Mail;
 
 
 class BookingController extends Controller
@@ -78,6 +80,28 @@ class BookingController extends Controller
 
         $data['status'] = $request->status;
 
+    $image=$request->file('avatar');
+
+    if ($image) {
+
+        $image_name = Str::random(20);
+        $ext=strtolower($image->getClientOriginalExtension());
+        $image_full_name=$image_name.'.'.$ext;
+        $upload_path='room_images/';
+        $image_url=$upload_path.$image_full_name;
+        $success=$image->move($upload_path,$image_full_name);
+        if ($success) {
+
+            $data['avatar'] = $image_url;
+
+            DB::table('rooms')->insert($data);
+            return Redirect::to('all-rooms');
+
+        }
+    }
+
+    $data['image']='';
+
         DB::table('rooms')->insert($data);
 
 
@@ -132,15 +156,22 @@ public function save_booking(Request $request){
 
     $data =array();
 
+
+
+    $data['customer_first_name']=$request->customer_first_name;
+    $data['customer_lastname']=$request->customer_lastname;
+    $data['customer_username'] = $request['customer_first_name'].' '.$data['customer_lastname'];
     $data['customer_phone_number']=$request->customer_phone_number;
-    $data['customer_id']=$request->customer_id;
-    $data['customer_check_in'] = $request->customer_check_in;
+       $data['customer_check_in'] = $request->customer_check_in;
     $data['customer_check_out']=$request->customer_check_out;
     $data['guest']=$request->guest;
-    $data['room_id'] = $request->room_id;
+    $data['children']=$request->children;
 
 
-    DB::table('booked')->insert($data);
+
+    DB::table('book')->insert($data);
+
+
 
     return Redirect::to('/');
 
@@ -162,6 +193,28 @@ public function save_room_type(Request $request){
     $data['client_id']=$request->client_id;
     $data['room_type_name']=$request->room_type_name;
     $data['status'] = $request->status;
+
+    // $image=$request->file('avatar');
+
+    // if ($image) {
+
+    //     $image_name = Str::random(20);
+    //     $ext=strtolower($image->getClientOriginalExtension());
+    //     $image_full_name=$image_name.'.'.$ext;
+    //     $upload_path='image_room_types/';
+    //     $image_url=$upload_path.$image_full_name;
+    //     $success=$image->move($upload_path,$image_full_name);
+    //     if ($success) {
+
+    //         $data['avatar'] = $image_url;
+
+    //         DB::table('room_types')->insert($data);
+    //         return Redirect::to('all-rooms');
+
+    //     }
+    // }
+
+    // $data['image']='';
 
 
     DB::table('room_types')->insert($data);
@@ -200,6 +253,25 @@ public function save_room_service(Request $request){
 
 }
 
+public function active_book($booking_id){
+
+    $Houses= DB::table('book')
+                    ->where('booking_id',$booking_id)
+                    ->update(['booking_status'=>0]);
+
+    return Redirect::to('all-booking');
+
+ }
+
+ public function unactive_book($booking_id){
+
+    $Houses= DB::table('book')
+                    ->where('booking_id',$booking_id)
+                    ->update(['booking_status'=>1]);
+
+    return Redirect::to('all-booking');
+
+ }
 
 
 }

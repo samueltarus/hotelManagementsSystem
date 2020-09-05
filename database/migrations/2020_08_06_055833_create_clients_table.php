@@ -18,7 +18,7 @@ class CreateClientsTable extends Migration
             $table->string('client_name');
             $table->string('email')->unique();
             $table->integer('no_of_rooms');
-
+            $table->boolean('client_status');
             $table->string('kra_pin');
             $table->string('address');
             $table->integer('phone_number');

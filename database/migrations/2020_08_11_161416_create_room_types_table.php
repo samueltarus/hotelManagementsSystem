@@ -19,6 +19,7 @@ class CreateRoomTypesTable extends Migration
             $table->foreign('client_id')->references('client_id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->string('room_type_name');
             $table->boolean('status');
+            $table->string('avatar');
             $table->softDeletes();
             $table->timestamps();
         });

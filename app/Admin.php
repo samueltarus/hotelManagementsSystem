@@ -14,7 +14,7 @@ class Admin extends Authenticatable
     use Notifiable;
 
 
-    protected $guard = 'user';
+   protected $guard ='admin';
 
     /**
      * The attributes that are mass assignable.
@@ -44,4 +44,5 @@ class Admin extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }

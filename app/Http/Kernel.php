@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http;
-
+use App\Http\Middleware\SalesMiddleware;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,7 +64,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-         'admin' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-         'admin' => \App\Http\Middleware\Admin::class,
+         'admin' =>AdminMiddleware::class,
+        'sales' =>SalesMiddleware::class,
     ];
 }

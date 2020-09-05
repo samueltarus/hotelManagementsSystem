@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -27,25 +27,18 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = 'admin';
-    public function handle($request, Closure $next)
-    {
-        // protected $redirectTo = 'admin';
-        if(auth()->user()->is_admin == 0){
-            return $next($request);
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected function redirectTo( ) {
+        if (Auth::check() && Auth::user()->role_id == '1') {
+            return('/admin');
         }
-
-       // return redirect('auth.login');
+        elseif (Auth::check() && Auth::user()->role_id == '2') {
+            return('/all-reservations');
+        }
+        else {
+            return('/home');
+        }
     }
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     // $this->middleware('guest')->except('logout');
-    //     $this->middleware('guest:admin')->except('logout');
-    // }
+  
 }

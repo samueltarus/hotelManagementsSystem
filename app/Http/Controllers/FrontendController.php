@@ -11,8 +11,13 @@ class FrontendController extends Controller
 {
     public function frontend_index(){
 
-
-        $rooms =DB::select('select room_code ,room_id from rooms ');
+        $rooms = DB::table('rooms')
+        ->join('room_types', 'rooms.room_type_id',  '=', 'room_types.room_type_id')
+        ->join('clients', 'rooms.client_id',  '=', 'clients.client_id')
+        ->join('services', 'rooms.service_id',  '=', 'services.service_id')
+        ->select('rooms.*','room_types.room_type_name','clients.client_name','services.service_name' )
+        ->orderBy('room_id','DESC')
+        ->get();
         return view('frontend.frontend_index',compact('rooms'));
     }
     public function frontend_rooms(){
@@ -21,16 +26,12 @@ class FrontendController extends Controller
         ->join('room_types', 'rooms.room_type_id',  '=', 'room_types.room_type_id')
         ->join('clients', 'rooms.client_id',  '=', 'clients.client_id')
         ->join('services', 'rooms.service_id',  '=', 'services.service_id')
-        ->select('rooms.*', 'room_types.room_type_name','clients.client_name','services.service_name' )
+        ->select('rooms.*','room_types.room_type_name','clients.client_name','services.service_name' )
+
         ->get();
 
-        // $rooms = DB::table('rooms')
-        // ->join('room_types', 'rooms.room_type_id',  '=', 'room_types.room_type_id')
-        // ->join('services', 'rooms.service_id',  '=', 'services.service_id')
-        // ->select('rooms.*', 'room_types.room_type_name','services.room_services_name')
-        // ->get();
 
-        // $rooms=Rooms::all();
+
         return view('frontend.frontend_rooms',compact('rooms'));
 
     }
@@ -52,10 +53,16 @@ class FrontendController extends Controller
         ->join('services', 'rooms.service_id',  '=', 'services.service_id')
         ->select('rooms.*', 'room_types.room_type_name','services.service_name','services.service_description')
         ->get();
-        // dd($rooms);
+        //  dd($rooms);
         $rooms =Rooms::find($room_id);
         return view('frontend.frontend_room_details',compact('rooms','room_id'));
 
+    }
+
+    public function house_type(){
+
+        $room_type =DB::table('rooms')->select('room_type')->get();
+        return view('frontend.frontend_house_type',compact('room_type'));
     }
 
 

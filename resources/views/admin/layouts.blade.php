@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel Management System</title>
+    <title> Management Hotel System</title>
     <!-- Core CSS - Include with every page -->
     <link href="{{asset('backend/plugins/bootstrap/bootstrap.css')}}" rel="stylesheet" />
     <link href="{{asset('backend/font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
@@ -79,11 +79,9 @@
                     <li>
                         <!-- user image section-->
                         <div class="user-section">
-                            <div class="user-section-inner">
-                                <img src="{{asset('backend/img/user.jpg')}}" >
-                            </div>
+
                             <div class="user-info">
-                                <div>{{ Auth::user()->name }}</div>
+                                <div style="width: auto;height:30px">{{ Auth::user()->email }} </div>
                                 <div class="user-text-online">
                                     <span class="user-circle-online btn btn-success btn-circle "></span>&nbsp;Online
                                 </div>
@@ -147,11 +145,8 @@
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reservation<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{url('all-reservation')}}">Reservation List</a></li>
-								<li><a href="payments.html">Payments</a></li>
-								<li><a href="expenses.html">Expenses</a></li>
-								<li><a href="taxes.html">Taxes</a></li>
-								<li><a href="provident-fund.html">Provident Fund</a></li>
+                            <li><a href="{{url('all-reservations')}}">Reservation List</a></li>
+
                         </ul>
                         <!-- second-level-items -->
                     </li>
@@ -161,16 +156,16 @@
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Customers<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="{{url('all-guest')}}">Customers List</a>
+                                <a href="{{url('all-customers')}}">Customers List</a>
                             </li>
                             <li>
-                                <a href="{{url('checkin-guest')}}">Add Customer</a>
+                                <a href="{{url('add-customer')}}">Add Customer</a>
                             </li>
                             <li>
-                                <a href="{{url('checkin-guest')}}">Checked In</a>
+                                <a href="{{url('checkin-customers')}}">Checked In</a>
                             </li>
                             <li>
-                                <a href="{{url('checkout-guest')}}">Checked Out</a>
+                                <a href="{{url('checkout-customers')}}">Checked Out</a>
                             </li>
                         </ul>
                         <!-- second-level-items -->
@@ -183,15 +178,7 @@
                         </ul>
                         <!-- second-level-items -->
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Employees<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="{{url('all-employees')}}">Employees List</a></li>
-                            <li><a href="{{url('add_employee')}}">Add Employee</a></li>
-                            <li><a href="{{url('employee-leave')}}">Leaves</a></li>
-                        </ul>
-                        <!-- second-level-items -->
-                    </li>
+
 
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Reports<span class="fa arrow"></span></a>
@@ -205,14 +192,7 @@
                         </ul>
                         <!-- second-level-items -->
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Payroll<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="{{url('all-salary')}}">Employees Salary</a></li>
-                            <li><a href="{{url('generate-slip')}}">Payslip</a></li>
-                        </ul>
-                        <!-- second-level-items -->
-                    </li>
+
                     <li>
                         <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Accounts and Invoicing<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -224,7 +204,23 @@
                         </ul>
                         <!-- second-level-items -->
                     </li>
-
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Employees<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="{{url('all-employees')}}">Employees List</a></li>
+                            <li><a href="{{url('add_employee')}}">Add Employee</a></li>
+                            <li><a href="{{url('employee-leave')}}">Leaves</a></li>
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Payroll<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="{{url('all-salary')}}">Employees Salary</a></li>
+                            <li><a href="{{url('generate-slip')}}">Payslip</a></li>
+                        </ul>
+                        <!-- second-level-items -->
+                    </li>
 
 
 

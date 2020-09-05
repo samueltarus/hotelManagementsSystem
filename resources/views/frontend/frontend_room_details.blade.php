@@ -60,7 +60,7 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li><a href="{{url('index')}}">Home</a></li>
+                <li><a href="{{url('frontend-index')}}">Home</a></li>
                 <li class="active"><a href="{{url('/')}}">Rooms</a></li>
             <li><a href="{{ url('frontend-about')}}}">About Us</a></li>
                 <li><a href="./pages.html">Pages</a>
@@ -138,7 +138,7 @@
                         <div class="nav-menu">
                             <nav class="mainmenu">
                                 <ul>
-                                <li><a href="{{url('index')}}">Home</a></li>
+                                <li><a href="{{url('frontend-index')}}">Home</a></li>
                                 <li class="active"><a href="{{url('/')}}">Rooms</a></li>
                                     <li><a href="{{url('frontend-about')}}">About Us</a></li>
                                     <li><a href="./pages.html">Pages</a>
@@ -224,6 +224,10 @@
                                         <td>{{$rooms->room_services_name}}</td>
                                     </tr>
                                     <tr>
+                                        <td class="r-o">Service Description </td>
+                                        <td>{{$rooms->service_description}}</td>
+                                    </tr>
+                                    <tr>
                                         <td class="r-o">Payment Number:</td>
                                         <td> <h2>{{$rooms->payment_number}} <span></span> </h2></td>
                                     </tr>
@@ -244,7 +248,7 @@
                                 choice wisely when purchasing an RV. Possessing a motorhome or fifth wheel is an
                                 achievement of a lifetime. It can be similar to sojourning with your residence as you
                                 search the various sites of our great land, America.</p>
-                            <p>{{$rooms->service_description}}
+                            <p>
                             </p>
                         </div>
                     </div>

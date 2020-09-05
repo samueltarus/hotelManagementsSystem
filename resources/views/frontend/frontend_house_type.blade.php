@@ -59,17 +59,15 @@
         </div>
         <nav class="mainmenu mobile-menu">
             <ul>
-                <li><a href="{{url('index')}}">Home</a></li>
+                <li><a href="{{url('frontend-index')}}">Home</a></li>
                 <li class="active"><a href="{{url('/')}}">Rooms</a></li>
                 <li><a href="{{url('frontend-about')}}}">About Us</a></li>
-                <li><a href="./pages.html">Room Types</a>
+                <li><a href="./pages.html">Pages</a>
                     <ul class="dropdown">
-
-                        <li><a href="./blog-details.html">Delukes Room</a></li>
+                        <li><a href="./room-details.html">Room Details</a></li>
+                        <li><a href="./blog-details.html">Blog Details</a></li>
                         <li><a href="#">Family Room</a></li>
                         <li><a href="#">Premium Room</a></li>
-                        <li><a href="#">Single Rooms</a></li>
-                        <li><a href="#">Double Rooms</a></li>
                     </ul>
                 </li>
                 <li><a href="./blog.html">News</a></li>
@@ -110,8 +108,6 @@
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
                             <a href="{{url('frontend-index')}}" class="bk-btn">Book Now</a>
-                            <a href="{{url ('login')  }}" class="bk-btn">Login</a>
-                            {{-- <a href="{{url ('register')  }}" class="bk-btn">Register</a> --}}
 
                             <div class="language-option">
                                 <img src="img/flag.jpg" alt="">
@@ -145,15 +141,13 @@
                                     <li><a href="{{url('frontend-index')}}">Home</a></li>
                                     <li class="active"><a href="{{url('/')}}">Rooms</a></li>
                                 <li><a href="{{  url('frontend-about')}}">About Us</a></li>
-                                    <li><a href="./pages.html">Room Type</a>
+                                    <li><a href="./pages.html">Pages</a>
                                         <ul class="dropdown">
-
-                                            <li><a href="./blog-details.html">Deluxe Room</a></li>
+                                            <li><a href="./room-details.html">Room Details</a></li>
+                                            <li><a href="./blog-details.html">Blog Details</a></li>
                                             <li><a href="#">Family Room</a></li>
                                             <li><a href="#">Premium Room</a></li>
-                                            <li><a href="#">Single Rooms</a></li>
-                                            <li><a href="#">Double Rooms</a></li>
-                                                            </ul>
+                                        </ul>
                                     </li>
                                     <li><a href="./blog.html">News</a></li>
                                     <li><a href="./contact.html">Contact</a></li>
@@ -194,16 +188,14 @@
             <div class="row"  class=" text-center">
                 @foreach ($rooms as $rooms)
 
-               <div class="col-lg-6 col-md-6">
+               <div class="col-lg-4 col-md-6">
                     <div class="room-item">
-                        <td>
-                            <img style="height:200px ; width:200px"; src="{{URL::to($rooms->avatar)}}"  >
-                           </td>
+                        <img src="{{asset('frontend/img/room/room-1.jpg')}}" alt="">
                         <div class="ri-text">
-                            <h4 style="background-color:MediumSeaGreen;"> {{$rooms->client_name}}</h4>
+                            <h4 class="text-center btn-info"> {{$rooms->client_name}}</h4>
                             <h4>{{$rooms->room_type_name}}</h4>
                             <h3>Ksh .{{$rooms->room_price}}<span></span></h3>
-                            <table >
+                            <table>
                                 <tbody>
                                     <tr>
                                         <td class="r-o">Size:</td>
@@ -223,11 +215,11 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        <a href="{{URL::to('/frontend-room-details/'.$rooms->room_id)}}" ><button type="button" class="btn btn-info">More Details</button></a>
+                        <a href="{{URL::to('/frontend-room-details/'.$rooms->room_id)}}" class="primary-btn">More Details</a>
+                        <div class="header-configure-area">
 
-
-                            <a href="{{url('frontend-index')}}" ><button type="button" class="btn btn-success">Book Now</button></a>
-
+                            <a href="{{url('frontend-index')}}" class="bt-primary">BOOK NOW</a>
+                        </div>
                         </div>
                     </div>
                 </div>

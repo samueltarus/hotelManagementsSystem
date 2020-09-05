@@ -55,7 +55,7 @@ return [
         'admin-api' => [
             'driver'=>'token',
             'provider' => 'admins',
-            //'hash' => false,
+            'hash' => false,
         ],
 
     ],
@@ -84,7 +84,7 @@ return [
         ],
         'admins' => [
             'driver' => 'eloquent',
-            'model' => App\Admin::class,
+            'model' => App\Model\Admin::class,
         ],
 
 

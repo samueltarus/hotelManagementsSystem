@@ -22,7 +22,7 @@
 
         <div class="row">
             <div class="col-md-4 col-md-offset-4 text-center logo-margin ">
-              <img src="assets/img/logo.png" alt=""/>
+              <img src="assets/img/logo.png')}}" alt=""/>
                 </div>
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
@@ -91,13 +91,14 @@
                             </div>
                         </div>
                             </fieldset>
+
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
      <!-- Core Scripts - Include with every page -->
      <script src="{{asset('backend/plugins/jquery-1.10.2.js')}}"></script>
      <script src="{{asset('backend/plugins/bootstrap/bootstrap.min.js')}}"></script>

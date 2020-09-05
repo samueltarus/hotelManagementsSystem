@@ -84,6 +84,10 @@
                         <label for="payment_contact_person">Payment Contact Person:</label>
                         <input type="text" class="form-control" placeholder="Enter Beds"name="payment_contact_person"id="payment_contact_person" required>
                       </div>
+                      <div class="form-group">
+                        <label for="avatar">Room Picture</label>
+                        <input type="file" class="form-control" placeholder="Enter Room Picture" name="avatar" id="avatar" required>
+                      </div>
 
                       <div class="radio">
                         <label>
